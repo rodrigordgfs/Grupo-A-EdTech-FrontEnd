@@ -104,7 +104,12 @@ export default {
       if (!this.student.id) {
         this.loading = true
         StudentService
-          .post(this.student)
+          .post({
+            name: this.student.name,
+            ra: this.student.ra,
+            cpf: this.student.cpf,
+            email: this.student.email
+          })
           .then(({ data }) => {
             this.loading = false
             this.$_back()
