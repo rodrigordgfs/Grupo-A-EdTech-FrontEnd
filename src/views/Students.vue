@@ -7,7 +7,7 @@
       class="pa-3"
       v-model="filter.name"
       @search="$_search"
-      @clear="$_search"
+      @clear="$_clear"
     />
     <v-table
       class="mx-3"
@@ -59,6 +59,11 @@ export default {
           this.loading = false
           console.log(error)
         })
+    },
+
+    $_clear (name) {
+      this.filter.name = name
+      this.$_search()
     }
   }
 }
