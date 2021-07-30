@@ -59,6 +59,7 @@ export default {
   methods: {
     $_clear () {
       this.name = ''
+      this.$emit('clear')
     },
 
     $_search () {

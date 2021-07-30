@@ -3,6 +3,17 @@
         <v-app-bar app color="primary" dark>
             <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
             <v-toolbar-title>Grupo A</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-btn
+                tile
+                color="primary"
+                @click="$_newStudent"
+            >
+                <v-icon left>
+                    mdi-account-plus
+                </v-icon>
+                new Student
+            </v-btn>
         </v-app-bar>
          <v-navigation-drawer v-model="drawer" absolute temporary>
             <v-list nav dense>
@@ -37,6 +48,16 @@ export default {
     routes () {
       return this.$router.options.routes.filter((item) => !item.hidden)
     }
+  },
+
+  methods: {
+    $_newStudent () {}
   }
 }
 </script>
+
+<style lang="scss">
+    .text-color-white {
+        color: white;
+    }
+</style>

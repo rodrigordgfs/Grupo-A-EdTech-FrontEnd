@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="v-container">
     <v-loading
       v-model="loading"
     />
@@ -7,6 +7,11 @@
       class="pa-3"
       v-model="filter.name"
       @search="$_search"
+      @clear="$_search"
+    />
+    <v-table
+      class="mx-3"
+      :students="students"
     />
   </div>
 </template>
@@ -15,6 +20,7 @@
 
 import VFilter from '@/components/VFilter'
 import VLoading from '@/components/VLoading'
+import VTable from '@/components/VTable'
 import StudentService from '@/services/students'
 
 export default {
@@ -22,7 +28,8 @@ export default {
 
   components: {
     VFilter,
-    VLoading
+    VLoading,
+    VTable
   },
 
   data () {
@@ -56,3 +63,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  .v-container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .v-btn-fab {
+    bottom: 0;
+    position: absolute;
+    margin: 0 0 16px 16px;
+  }
+</style>
