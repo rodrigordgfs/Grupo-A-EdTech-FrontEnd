@@ -58,7 +58,7 @@ export default {
 
   watch: {
     selected: function (value) {
-      console.log(value[0] ? value[0].id : null)
+      this.$router.push(`/students/${value[0].id}`)
     }
   },
 

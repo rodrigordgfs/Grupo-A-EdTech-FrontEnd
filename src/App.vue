@@ -5,6 +5,7 @@
             <v-toolbar-title>Grupo A</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn
+                v-if="showNewStudent"
                 tile
                 color="primary"
                 @click="$_newStudent"
@@ -47,11 +48,17 @@ export default {
   computed: {
     routes () {
       return this.$router.options.routes.filter((item) => !item.hidden)
+    },
+
+    showNewStudent () {
+      return this.$route.name !== 'StudentsCUD'
     }
   },
 
   methods: {
-    $_newStudent () {}
+    $_newStudent () {
+      this.$router.push('/students')
+    }
   }
 }
 </script>
